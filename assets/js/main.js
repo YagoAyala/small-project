@@ -1,6 +1,6 @@
-let SaveData = function () {
-    let peso = document.getElementById('peso').value;  
-    let altura = document.getElementById('altura').value
+var SaveData = function () {
+    var peso = document.getElementById('peso').value;  
+    var altura = document.getElementById('altura').value
     console.log(peso + altura)
 }
 
