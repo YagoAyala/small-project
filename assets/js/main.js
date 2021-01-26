@@ -26,8 +26,8 @@ form.addEventListener('submit', function (event) {
 
     const msg = `Seu IMC é ${imc} (${nivelImc}).`;
     
-    const imcsAtuais = JSON.parse(localStorage.getItem('IMC')) || [];
-    imcsAtuais.push({ imc, date: new Date ().toLocaleDateString() });
+    let imcAtuais = [];
+    if (localStorage.getItem('IMC')) imcsAtuais = JSON.parse(localStorage.getItem('IMC'));
     localStorage.setItem('IMC', JSON.stringify(imcsAtuais));
     
     setResultado(msg, true);
