@@ -29,8 +29,6 @@ form.addEventListener('submit', function (event) {
     setResultado(msg, true);
 });
 
-localStorage.setItem('imc', variavelDoIMC)
-
 function getNivelImc(imc) {
     const nivel = ['Abaixo do peso', 'Peso normal', 'Sobrepeso',
         'Obesidade grau 1', 'Obesidade grau 2', 'Obesidade grau3'];
@@ -47,6 +45,8 @@ function getImc(peso, altura) {
     const imc = peso / altura ** 2;
     return imc.toFixed(2);
 }
+
+localStorage.setItem('imc', variavelDoIMC)
 
 function criaP() {
     const p = document.createElement('p');
