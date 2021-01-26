@@ -28,6 +28,7 @@ form.addEventListener('submit', function (event) {
     
     let imcAtuais = [];
     if (localStorage.getItem('IMC')) imcsAtuais = JSON.parse(localStorage.getItem('IMC'));
+    imcsAtuais.push({ imc, date: new Date().toLocaleDateString() });
     localStorage.setItem('IMC', JSON.stringify(imcsAtuais));
     
     setResultado(msg, true);
