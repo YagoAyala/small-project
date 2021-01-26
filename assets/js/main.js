@@ -1,3 +1,19 @@
+function setImcs() {
+    let imcsAtuais = [];
+
+    if (JSON.parse(localStorage.getItem('IMC'))) imcsAtuais = JSON.parse(localStorage.getItem('IMC'));
+
+    imcsAtuais.map((i) => {
+        const table = document.querySelector('table');
+        const row = table.insertRow(1);
+        const imc = row.insertCell(0);
+        const date = row.insertCell(1);
+        imc.innerHTML = i.imc;
+        date.innerHTML = i.date;
+    })
+}
+
+
 const form = document.querySelector('#formulario');
 
 form.addEventListener('submit', function (event) {
@@ -25,12 +41,19 @@ form.addEventListener('submit', function (event) {
     const nivelImc = getNivelImc(imc);
 
     const msg = `Seu IMC é ${imc} (${nivelImc}).`;
-    
+
     let imcsAtuais = [];
     if (JSON.parse(localStorage.getItem('IMC'))) imcsAtuais = JSON.parse(localStorage.getItem('IMC'));
     imcsAtuais.push({ imc, date: new Date().toLocaleDateString() });
     localStorage.setItem('IMC', JSON.stringify(imcsAtuais));
-    
+
+    const table = document.querySelector('table');
+    const row = table.insertRow(1);
+    const imcElement = row.insertCell(0);
+    const dateElement = row.insertCell(1);
+    imcElement.innerHTML = imc;
+    dateElement.innerHTML = new Date().toLocaleDateString();
+
     setResultado(msg, true);
 });
 
@@ -61,7 +84,7 @@ function setResultado(msg, isValid) {
     resultado.innerHTML = '';
     const p = criaP();
     if (isValid) {
-      p.setAttribute('id', 'certo');
+        p.setAttribute('id', 'certo');
     } else {
         p.setAttribute('id', 'errado');
     }
