@@ -1,11 +1,3 @@
-var SaveData = function () {
-    var peso = document.getElementById('peso').value;  
-    var altura = document.getElementById('altura').value
-    console.log(peso + altura)
-}
-
-document.onchange = saveData;
-
 const form = document.querySelector('#formulario');
 
 form.addEventListener('submit', function (event) {
@@ -36,6 +28,8 @@ form.addEventListener('submit', function (event) {
 
     setResultado(msg, true);
 });
+
+localStorage.setItem('imc', variavelDoIMC)
 
 function getNivelImc(imc) {
     const nivel = ['Abaixo do peso', 'Peso normal', 'Sobrepeso',
