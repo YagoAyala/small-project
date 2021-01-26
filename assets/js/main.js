@@ -1,3 +1,11 @@
+let SaveData = function () {
+    let peso = document.getElementById('peso').value;  
+    let altura = document.getElementById('altura').value
+    console.log(peso + altura)
+}
+
+document.onchange = saveData;
+
 const form = document.querySelector('#formulario');
 
 form.addEventListener('submit', function (event) {
