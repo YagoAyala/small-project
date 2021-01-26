@@ -25,7 +25,9 @@ form.addEventListener('submit', function (event) {
     const nivelImc = getNivelImc(imc);
 
     const msg = `Seu IMC é ${imc} (${nivelImc}).`;
-
+    
+    localStorage.setItem('IMC', imc)
+    
     setResultado(msg, true);
 });
 
@@ -45,8 +47,6 @@ function getImc(peso, altura) {
     const imc = peso / altura ** 2;
     return imc.toFixed(2);
 }
-
-localStorage.setItem('imc', variavelDoIMC)
 
 function criaP() {
     const p = document.createElement('p');
