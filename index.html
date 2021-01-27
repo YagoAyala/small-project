@@ -2,6 +2,10 @@
 <html lang="pt-BR">
 
 <head>
+  <meta name="theme-color" content="#f9f9f9">
+  <link rel="apple-touch-icon" href="/icon/android-icon-192x192-dunplab-manifest-35527.jpg">
+  <link rel="manifest" href="dunplab-manifest-35527.json">
+  <link rel="canonical" href="https://yagoayala.github.io/small-project/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,25 +14,41 @@
 </head>
 
 <body onload="setImcs()">
+  <script>
+    if ("serviceWorker" in navigator) {
+     if (navigator.serviceWorker.controller) {
+     console.log("[PWA Builder] active service worker found, no need to register");
+     } else {
+     navigator.serviceWorker
+     .register("pwabuilder-sw.js", {
+     scope: "./"
+     })
+     .then(function (reg) {
+     console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+     });
+     }
+    }
+    </script>
+
   <section class="container">
     <h1>Calcule seu IMC</h1>
-   <form action="/" id="formulario" method="POST">
-     <label for="peso">Peso</label>
-     <input type="text" id="peso" name="peso">
-     <label for="altura">Altura</label>
-     <input type="text" id="altura" name="altura">
-     <button type="submit">Enviar</button>
-   </form>
+    <form action="/" id="formulario" method="POST">
+      <label for="peso">Peso</label>
+      <input type="text" id="peso" name="peso">
+      <label for="altura">Altura</label>
+      <input type="text" id="altura" name="altura">
+      <button type="submit">Enviar</button>
+    </form>
 
-   <div id="resultado"></div>
+    <div id="resultado"></div>
 
-   <table style="width:100%">
-    <tr>
-      <th>IMC</th>
-      <th>Dia</th>
-    </tr>
-  </table>
-  </form>
+    <table style="width:100%">
+      <tr>
+        <th>IMC</th>
+        <th>Dia</th>
+      </tr>
+    </table>
+    </form>
   </section>
 
   <script src="./assets/js/main.js"></script>
