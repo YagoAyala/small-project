@@ -1,19 +1,23 @@
 
-// This is the "Offline copy of assets" service worker
+const cacheName ='v1';
 
-const CACHE = "pwabuilder-offline";
+const resourcesToPrecache = [
+  '/',
+  'index.html',
+  './assets/css/style.css',
+  './style.css',
+];
 
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(cacheName)
+    .then(cache => (cache.addAll(resourcesToPrecache))),
+  );
 });
 
-workbox.routing.registerRoute(
-  new RegExp('/*'),
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: CACHE
-  })
-);
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request)
+    .then(cacheResponse => (cacheResponse || fetch(event.request))),
+  )
+});
