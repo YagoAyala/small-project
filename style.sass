@@ -19,6 +19,7 @@ body
 
 .lines
   position: absolute
+  z-index: -9999
   top: 0
   left: 0
   right: 0
@@ -64,3 +65,103 @@ body
     top: -50%
   100%
     top: 110%
+
+    @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400)
+
+$radius: 5px
+$width: 600px
+$background: linear-gradient(to left, #3e94ec, #25b7c4)
+$hover-color: #4E5066
+
+body
+  background: $background
+  font-family: "Roboto", Helvetica, arial, sans-serif
+  text-rendering: optimizeLegibility
+
+h3
+  width: $width
+  display: block
+  margin: 60px auto 30px auto
+  color: #fafafa
+  font-size: 30px
+  font-weight: 400
+  font-style: normal
+  text-shadow: -1px -1px 1px rgba(0,0,0,0.1)
+  text-transform: uppercase
+  
+@for $i from 0 to 20
+  tbody
+    tr:nth-child(#{$i})
+      animation-delay: $i * 0.15s 
+
+table
+  width: $width
+  margin: 0 auto
+  border-collapse: collapse
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1)
+  border-radius: $radius
+  thead
+    border-bottom: 1px solid #444
+    th
+      &:first-child
+        border-top-left-radius: $radius
+      &:last-child
+        border-top-right-radius: $radius
+        border-right: none
+    
+  tbody
+    tr
+      &:last-child
+        td
+          border-bottom: 0px
+          &:first-child
+            border-bottom-left-radius: $radius
+          &:last-child
+            border-bottom-right-radius: $radius
+    tr
+      opacity: 0
+      animation: table
+      animation-duration: 1.5s
+      animation-fill-mode: forwards
+      background: #FFF
+      border-top: 1px solid #C1C3D1
+      &:nth-child(odd)
+        background: #EBEBEB
+    tr
+      td
+        transition: all .2s ease-in-out 
+      &:hover
+        td
+          background: $hover-color
+          color: #FFFFFF
+          border-top: 1px solid #22262e
+          border-bottom: 1px solid #22262e
+  th
+    font-weight: normal
+    text-align: middle
+    background: #1b1e24
+    color: #D5DDE5
+    font-weight: 100
+    font-size: 23px
+    border-bottom: 4px solid #9ea7af
+    border-right: 1px solid #343a45
+    padding: 12px
+  td
+    padding: 20px
+    text-align: center
+    font-size: 18px
+    font-weight: 300
+    color: #666B85
+    text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1)
+    border-top: 1px solid #C1C3D1
+    border-bottom: 1px solid #C1C3D1
+    &:first-child
+      text-align: center
+      &:before
+        content: ''
+    
+@keyframes table
+  0%
+    opacity: 0
+  100%
+    opacity: 1
