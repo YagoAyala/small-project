@@ -1,106 +1,38 @@
-body {
-    background-color: darkslategrey;
-    text-align: center;
-  }
-  
-  #gameContainer {
-
-    width: 40vw;
-    height: 40vw;
-    margin: 2vw auto;
-    background-color: #0c1021;
-    border: solid 10px slategrey;
-    border-radius: 10px;
-  
-    -webkit-box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.6);
-    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.6);
-  }
-  
-  .gameBoardPixel {
-
-    width: 1vw;
-    height: 1vw;
-    border-radius: 10px;
-    float: left;
-  }
- 
-  .snakeBodyPixel {
-    background-color: #fd6401;
-    box-shadow: 0 0 5px #fd6401;
-  }
-  
-  .food {
-    background-color: #68e768;
-  }
-
-  #scoreContainer {
-    width: 40vw;
-    display: flex;
-    margin: auto;
-    justify-content: space-around;
-  }
-  
-  .scoreBoard {
-    border-radius: 10px;
-    border: solid 5px slategrey;
-    color: dimgray;
-    background-color: #0c1021;
-    display: inline-block;
-    padding: 1vw;
-    width: 40%;
-  
-    -webkit-box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.6);
-    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.6);
-  }
-
-  #onScreenControllers {
-    display: none;
-  }
-  
-  @media only screen and (max-width: 768px) {
-
-    #gameContainer {
-      width: 80vw;
-      height: 80vw;
-    }
-  
-    .gameBoardPixel {
-      width: 2vw;
-      height: 2vw;
-    }
-  
-    #scoreContainer {
-      width: 80vw;
-    }
-  
-    #onScreenControllers {
-      width: 80vw;
-      margin: 5vw auto;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-    }
-  
-    #onScreenControllers > div {
-      display: flex;
-      flex-direction: column;
-    }
-  
-    #onScreenControllers button {
-      background-color: transparent;
-      height: 20vw;
-      width: 20vw;
-      font-size: 10vw;
-      border: none;
-    }
-  
-    #onScreenControllers button:focus {
-      outline: none;
-    }
-  
-    #onScreenControllers button:active {
-      background-color: slategray;
-    }
-  }
+*{
+    padding: 0;
+    margin: 0;
+}
+#game{
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+}
+#character{
+    width: 20px;
+    height: 50px;
+    background-color: red;
+    position: relative;
+    top: 150px;
+}
+.animate{
+    animation: jump 500ms infinite;
+}
+@keyframes jump {
+    0%{top: 150px;}
+    30%{top: 100px;}
+    70%{top: 100px;}
+    100%{top: 150px;}
+}
+#block{
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    position: relative;
+    top: 130px;
+    left: 480px;
+    animation: block 1s infinite linear;
+}
+@keyframes block {
+    0%{left:480px;}
+    100%{left:-40px;}
+}
