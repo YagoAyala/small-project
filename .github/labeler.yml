@@ -1,5 +1,3 @@
 JavaScript:
 - any: ['assets/**/*.js']
   
-CSS:
-- any: ['assets/**/*.css']
