@@ -1,3 +1,0 @@
-frontend:
-- any: ['assets/**/*.js']
-  all: ['!assets/main.js']
