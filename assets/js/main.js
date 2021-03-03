@@ -12,7 +12,7 @@ function setImcs() {
         date.innerHTML = i.date;
     })
 }
-
+   
 
 const form = document.querySelector('#formulario');
 
@@ -92,4 +92,4 @@ function setResultado(msg, isValid) {
     resultado.appendChild(p);
 }
 
-  
+  // RICHARD
