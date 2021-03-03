@@ -1,6 +1,7 @@
 JavaScript:
-- *.js
-
+- any: ['src/**/*.js']
+  all: ['!src/main.js']
+  
 HTML:
 - *.html
 
