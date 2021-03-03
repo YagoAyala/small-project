@@ -1,0 +1,10 @@
+
+
+POST https://discord.com/api/webhooks/816644781270630471/vTZV1euVk14-3nirOwTtavRloPGvXWtee-k6KN8dzwK4kUSRPmjFCXpH_kWgKi_P4GKo
+Content-Type: application/json
+
+{
+    "username": "Doge",
+    "avatar_url": "https://i.pinimg.com/originals/2b/be/15/2bbe1591e28725b3f04217fee988b5e1.jpg",
+    "content": "WOW"
+}
