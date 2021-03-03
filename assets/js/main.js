@@ -13,7 +13,7 @@ function setImcs() {
     })
 }
 
-
+//
 const form = document.querySelector('#formulario');
 
 form.addEventListener('submit', function (event) {
